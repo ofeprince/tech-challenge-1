@@ -58,6 +58,32 @@ src/
 
 This structure separates concerns: API logic in `api/`, data models in `models/`, scripts in `scripts/`, and shared code in `shared/`. The `data/` directory handles both database and raw data outputs.
 
+### Solution Diagram
+  ```mermaid
+  flowchart TD
+    A[DATA SOURCE: books.toscrape.com] --> B[SCRAPER ENGINE: src/shared/scraper]
+    B --> C[SCRIPT: src/scripts/scrapping_app]
+    C --> D[(Local CSV)]
+    B --> E[API FLASK]
+    E --> G[Swagger apidocs]
+    E --> H[api/v1/categories]
+    E --> I[api/v1/auth]
+    E --> K[api/v1/books]
+    E --> L[api/v1/scraper]
+    I --> I1[(Users)]
+    H --> I2[(Categories)]
+    K --> I3[(Books)]
+    L --> I2[(Categories)]
+    L --> I3[(Books)]
+
+    subgraph SQLite
+        I1
+        I2
+        I3
+    end
+
+  ```
+
 ## Installation
 
 1. Clone the repository:
