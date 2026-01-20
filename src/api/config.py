@@ -2,7 +2,11 @@ import os
 from dotenv import load_dotenv
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DATA_DIR = os.path.join(BASE_DIR, "data", "db")
+DATA_DIR = os.path.join(BASE_DIR, "data")
+os.makedirs(DATA_DIR, exist_ok=True)
+
+DATA_DIR = os.path.join(DATA_DIR, "db")
+os.makedirs(DATA_DIR, exist_ok=True)
 
 load_dotenv()
 

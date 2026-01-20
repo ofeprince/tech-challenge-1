@@ -3,7 +3,11 @@ import csv
 import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DATA_DIR = os.path.join(BASE_DIR, "data", "raw")
+DATA_DIR = os.path.join(BASE_DIR, "data")
+os.makedirs(DATA_DIR, exist_ok=True)
+
+DATA_DIR = os.path.join(DATA_DIR, "raw")
+os.makedirs(DATA_DIR, exist_ok=True)
 
 csv_path = os.path.join(DATA_DIR, "books_category.csv")
 

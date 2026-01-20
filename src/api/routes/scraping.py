@@ -16,6 +16,8 @@ def scrape():
     """
     Extract data from the website to the database
     ---
+    security:
+        - Bearer: []
     responses:
         200:
             description: Scraping has been executed successfully.

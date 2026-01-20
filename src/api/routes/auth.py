@@ -59,6 +59,8 @@ def refresh_token():
     """
     Refresh JWT access token
     ---
+    security:
+        - Bearer: []
     parameters:
         - in: header
           name: Authorization
